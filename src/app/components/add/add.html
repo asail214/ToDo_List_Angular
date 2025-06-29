@@ -2,10 +2,8 @@
   <!-- Page Header -->
   <div class="professional-card">
     <div class="card-header-custom">
-      <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&h=300&fit=crop&crop=center" 
-           alt="Create New Task" class="hero-image">
-      <h2 class="display-5">✨ Create New Task</h2>
-      <p class="lead">Transform your ideas into actionable tasks and boost your productivity</p>
+      <h2 class="display-5 mb-3">✨ Create New Task</h2>
+      <p class="lead mb-0">Transform your ideas into actionable tasks and boost your productivity</p>
     </div>
   </div>
 
@@ -15,42 +13,83 @@
       <div class="professional-card">
         <div class="card-body p-5">
           <div class="text-center mb-5">
-            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=120&h=120&fit=crop&crop=center" 
-                 alt="Task Creation" class="icon-image">
-            <h4 class="text-primary">What would you like to accomplish?</h4>
+            <h4 class="text-primary-blue fw-semibold">What would you like to accomplish?</h4>
+            <p class="text-muted">Create a clear, actionable task to add to your productivity dashboard</p>
           </div>
           
-          <form (ngSubmit)="addTask()" #taskForm="ngForm">
+          <form (ngSubmit)="addTask()" #taskForm="ngForm" class="needs-validation" novalidate>
             <div class="mb-4">
               <label for="taskTitle" class="form-label">
-                <i class="bi bi-pencil text-primary"></i>
+                <i class="bi bi-pencil text-primary-blue"></i>
                 Task Description
               </label>
               <input 
                 id="taskTitle"
                 [(ngModel)]="taskTitle" 
                 name="taskTitle"
-                class="form-control"
+                class="form-control form-control-lg"
                 placeholder="e.g., Buy groceries, Finish project proposal, Call dentist..."
                 required
-                #titleInput="ngModel" />
+                maxlength="200"
+                #titleInput="ngModel" 
+                [class.is-invalid]="titleInput.invalid && titleInput.touched"
+                [class.is-valid]="titleInput.valid && titleInput.touched" />
               
-              <!-- Validation message -->
-              <div *ngIf="titleInput.invalid && titleInput.touched" class="text-danger mt-3">
-                <i class="bi bi-exclamation-triangle"></i>
-                <small>Please enter a task description to continue</small>
+              <!-- Character counter -->
+              <div class="d-flex justify-content-between mt-2">
+                <div *ngIf="titleInput.invalid && titleInput.touched" class="text-danger">
+                  <i class="bi bi-exclamation-triangle"></i>
+                  <small>Please enter a task description to continue</small>
+                </div>
+                <div *ngIf="titleInput.valid && titleInput.touched" class="text-success">
+                  <i class="bi bi-check-circle"></i>
+                  <small>Looking good!</small>
+                </div>
+                <small class="text-muted ms-auto">
+                  {{ taskTitle.length }}/200 characters
+                </small>
+              </div>
+            </div>
+
+            <!-- Priority Selection (Optional Enhancement) -->
+            <div class="mb-4">
+              <label class="form-label">
+                <i class="bi bi-flag text-primary-blue"></i>
+                Priority Level (Optional)
+              </label>
+              <div class="btn-group w-100" role="group">
+                <input type="radio" class="btn-check" name="priority" id="low" [(ngModel)]="priority" value="low">
+                <label class="btn btn-outline-success" for="low">
+                  <i class="bi bi-flag"></i> Low
+                </label>
+
+                <input type="radio" class="btn-check" name="priority" id="medium" [(ngModel)]="priority" value="medium" checked>
+                <label class="btn btn-outline-warning" for="medium">
+                  <i class="bi bi-flag-fill"></i> Medium
+                </label>
+
+                <input type="radio" class="btn-check" name="priority" id="high" [(ngModel)]="priority" value="high">
+                <label class="btn btn-outline-danger" for="high">
+                  <i class="bi bi-exclamation-triangle"></i> High
+                </label>
               </div>
             </div>
             
             <div class="d-grid gap-3 mb-4">
               <button 
                 type="submit"
-                class="btn btn-green btn-professional btn-lg"
-                [disabled]="taskForm.invalid || !taskTitle.trim()">
-                <i class="bi bi-check-lg"></i>
-                Create Task
+                class="btn btn-primary-blue btn-professional btn-lg"
+                [disabled]="taskForm.invalid || !taskTitle.trim() || isSubmitting">
+                <span *ngIf="!isSubmitting">
+                  <i class="bi bi-check-lg"></i>
+                  Create Task
+                </span>
+                <span *ngIf="isSubmitting">
+                  <span class="spinner-border spinner-border-sm me-2"></span>
+                  Creating...
+                </span>
               </button>
-              <a routerLink="/todos" class="btn btn-outline btn-professional btn-lg">
+              <a routerLink="/todos" class="btn btn-outline-custom btn-professional btn-lg">
                 <i class="bi bi-arrow-left"></i>
                 Back to Tasks
               </a>
@@ -59,7 +98,7 @@
           
           <!-- Success message -->
           <div *ngIf="showSuccessMessage" class="alert alert-success text-center">
-            <i class="bi bi-check-circle"></i>
+            <i class="bi bi-check-circle me-2"></i>
             <strong>Success!</strong> Your task has been created successfully! Redirecting to your task list...
           </div>
         </div>
@@ -68,46 +107,43 @@
   </div>
 
   <!-- Pro Tips Section -->
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center">
     <div class="col-xl-8 col-lg-10">
       <div class="professional-card">
         <div class="card-body p-4">
-          <h5 class="text-primary mb-4">
-            <i class="bi bi-lightbulb"></i>
+          <h5 class="text-primary-blue mb-4 fw-semibold">
+            <i class="bi bi-lightbulb me-2"></i>
             Pro Tips for Effective Task Management
           </h5>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <div class="d-flex align-items-start">
-                <div class="me-3">
-                  <i class="bi bi-clock text-warning" style="font-size: 1.25rem;"></i>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="text-center">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
+                     style="width: 50px; height: 50px; background: var(--warning-orange-light);">
+                  <i class="bi bi-clock text-warning"></i>
                 </div>
-                <div>
-                  <h6 class="mb-1">Set Deadlines</h6>
-                  <small class="text-muted">Include time frames when needed</small>
-                </div>
+                <h6 class="fw-semibold mb-2">Be Specific</h6>
+                <small class="text-muted">Include clear action words and deadlines when possible</small>
               </div>
             </div>
-            <div class="col-md-6 mb-3">
-              <div class="d-flex align-items-start">
-                <div class="me-3">
-                  <i class="bi bi-list-ul text-info" style="font-size: 1.25rem;"></i>
+            <div class="col-md-4">
+              <div class="text-center">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
+                     style="width: 50px; height: 50px; background: var(--primary-blue-light);">
+                  <i class="bi bi-list-ul text-primary-blue"></i>
                 </div>
-                <div>
-                  <h6 class="mb-1">Break It Down</h6>
-                  <small class="text-muted">Large tasks work better as smaller steps</small>
-                </div>
+                <h6 class="fw-semibold mb-2">Break It Down</h6>
+                <small class="text-muted">Large tasks work better when divided into smaller steps</small>
               </div>
             </div>
-            <div class="col-md-6 mb-3">
-              <div class="d-flex align-items-start">
-                <div class="me-3">
-                  <i class="bi bi-star text-primary" style="font-size: 1.25rem;"></i>
+            <div class="col-md-4">
+              <div class="text-center">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
+                     style="width: 50px; height: 50px; background: var(--accent-purple-light);">
+                  <i class="bi bi-star text-purple"></i>
                 </div>
-                <div>
-                  <h6 class="mb-1">Prioritize</h6>
-                  <small class="text-muted">Focus on what matters most first</small>
-                </div>
+                <h6 class="fw-semibold mb-2">Set Priorities</h6>
+                <small class="text-muted">Focus on what matters most and creates the biggest impact</small>
               </div>
             </div>
           </div>

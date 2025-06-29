@@ -1,15 +1,13 @@
-  <div class="container-fluid h-100">
-    <div class="row h-100">
-      <!-- Left Sidebar -->
-      <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar p-0">
-        <app-navbar></app-navbar>
-      </nav>
+<div class="d-flex">
+  <!-- Fixed Left Sidebar -->
+  <nav class="sidebar">
+    <app-navbar></app-navbar>
+  </nav>
 
-      <!-- Main Content -->
-      <main class="col-md-9 col-lg-10 px-md-4 py-4">
-        <div class="container-fluid">
-          <router-outlet></router-outlet>
-        </div>
-      </main>
+  <!-- Main Content Area -->
+  <main class="flex-grow-1">
+    <div class="container-xxl">
+      <router-outlet></router-outlet>
     </div>
-  </div>  
+  </main>
+</div>

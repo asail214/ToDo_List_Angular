@@ -1,70 +1,93 @@
-<div class="sidebar">
-  <!-- App Branding -->
-  <div class="text-center mb-4">
-    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop&crop=center" 
-         alt="Todo Universe Logo" 
-         class="small-icon mb-3">
-    <h4 class="text-primary fw-bold mb-1">✨ Todo Universe</h4>
-    <p class="text-muted small mb-0">Your productivity companion</p>
-  </div>
-  
-  <hr style="border-color: var(--medium-gray); margin: 24px 0;">
-  
-  <!-- Navigation Links -->
-  <nav>
-    <ul class="nav nav-pills flex-column">
-      <li class="nav-item">
-        <a 
-          class="nav-link d-flex align-items-center" 
-          routerLink="/" 
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact: true}">
-          <i class="bi bi-house-heart me-3"></i>
-          <span>Home</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a 
-          class="nav-link d-flex align-items-center" 
-          routerLink="/todos" 
-          routerLinkActive="active">
-          <i class="bi bi-list-check me-3"></i>
-          <span>My Tasks</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a 
-          class="nav-link d-flex align-items-center" 
-          routerLink="/add" 
-          routerLinkActive="active">
-          <i class="bi bi-plus-circle me-3"></i>
-          <span>Add Task</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a 
-          class="nav-link d-flex align-items-center" 
-          routerLink="/about" 
-          routerLinkActive="active">
-          <i class="bi bi-info-circle me-3"></i>
-          <span>About</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  
-  <!-- Footer Section -->
-  <div class="mt-auto pt-4">
-    <hr style="border-color: var(--medium-gray); margin: 24px 0;">
-    <div class="text-center">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=80&h=80&fit=crop&crop=center" 
-           alt="Angular Technology" 
-           class="small-icon mb-2"
-           style="width: 32px; height: 32px;">
-      <div class="small text-muted">
-        <p class="mb-1 fw-semibold">Built with 💜</p>
-        <p class="mb-0">Angular 20</p>
+<!-- App Branding -->
+<div class="text-center mb-4">
+  <h4 class="text-primary-blue fw-bold mb-1">✨ Todo Universe</h4>
+  <p class="text-muted small mb-0">Your productivity companion</p>
+</div>
+
+<hr class="border-2 opacity-25 my-4">
+
+<!-- Navigation Links -->
+<nav>
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-item">
+      <a 
+        class="nav-link d-flex align-items-center" 
+        routerLink="/" 
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+        <i class="bi bi-house-heart me-3" style="font-size: 1.1rem;"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a 
+        class="nav-link d-flex align-items-center" 
+        routerLink="/todos" 
+        routerLinkActive="active">
+        <i class="bi bi-list-check me-3" style="font-size: 1.1rem;"></i>
+        <span>My Tasks</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a 
+        class="nav-link d-flex align-items-center" 
+        routerLink="/add" 
+        routerLinkActive="active">
+        <i class="bi bi-plus-circle me-3" style="font-size: 1.1rem;"></i>
+        <span>Add Task</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a 
+        class="nav-link d-flex align-items-center" 
+        routerLink="/about" 
+        routerLinkActive="active">
+        <i class="bi bi-info-circle me-3" style="font-size: 1.1rem;"></i>
+        <span>About</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Stats Section (if on tasks page) -->
+<div class="mt-4 p-3 bg-light rounded-3" *ngIf="showQuickStats">
+  <h6 class="text-primary-blue mb-3 fw-semibold">
+    <i class="bi bi-graph-up me-2"></i>
+    Quick Stats
+  </h6>
+  <div class="row g-2 text-center">
+    <div class="col-6">
+      <div class="bg-white rounded-2 p-2">
+        <div class="fw-bold text-primary-blue">{{ totalTasks }}</div>
+        <small class="text-muted">Total</small>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="bg-white rounded-2 p-2">
+        <div class="fw-bold text-success">{{ completedTasks }}</div>
+        <small class="text-muted">Done</small>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Footer Section 
+<div class="mt-auto pt-4">
+  <hr class="border-2 opacity-25 my-4">
+  <div class="text-center">
+    <div class="d-flex align-items-center justify-content-center mb-2">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=80&h=80&fit=crop&crop=center" 
+           alt="Angular Technology" 
+           class="small-icon me-2"
+           style="width: 24px; height: 24px;">
+      <div class="small text-muted">
+        <div class="fw-semibold">Built with 💜</div>
+      </div>
+    </div>
+    <div class="small text-muted">
+      <span class="badge bg-gradient-primary text-white px-2 py-1 rounded-pill">
+        Angular 20
+      </span>
+    </div>
+  </div>
+</div>-->

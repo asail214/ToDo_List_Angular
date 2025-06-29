@@ -9,33 +9,42 @@ import { TodoService } from '../../services/todo';
   selector: 'app-add',
   templateUrl: './add.html',
   styleUrl: './add.scss',
-  imports: [FormsModule, RouterLink, NgIf] // ✅ Added NgIf and RouterLink
+  imports: [FormsModule, RouterLink, NgIf]
 })
 export class AddComponent {
   taskTitle = '';
+  priority = 'medium';
   showSuccessMessage = false;
+  isSubmitting = false;
 
   constructor(private todoService: TodoService, private router: Router) {}
 
-  addTask() {
-    if (this.taskTitle.trim()) {
-      // Add the task
-      this.todoService.addTodo({
-        id: Date.now(),
-        title: this.taskTitle.trim(),
-        done: false
-      });
+  addTask(): void {
+    if (this.taskTitle.trim() && !this.isSubmitting) {
+      this.isSubmitting = true;
       
-      // Show success message
-      this.showSuccessMessage = true;
-      
-      // Clear the form
-      this.taskTitle = '';
-      
-      // Redirect after a short delay for better UX
+      // Simulate processing time for better UX
       setTimeout(() => {
-        this.router.navigate(['/todos']);
-      }, 1000);
+        // Add the task
+        this.todoService.addTodo({
+          id: Date.now(),
+          title: this.taskTitle.trim(),
+          done: false
+        });
+        
+        // Show success message
+        this.showSuccessMessage = true;
+        this.isSubmitting = false;
+        
+        // Clear the form
+        this.taskTitle = '';
+        this.priority = 'medium';
+        
+        // Redirect after a short delay for better UX
+        setTimeout(() => {
+          this.router.navigate(['/todos']);
+        }, 1500);
+      }, 800);
     }
   }
 }
