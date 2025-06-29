@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common'; // ✅ Added NgIf
+import { RouterLink } from '@angular/router';
 import { TodoService } from '../../services/todo';
 import { Todo } from '../../models/todo.model';
-import { RouterLink } from '@angular/common';
 
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [NgFor, RouterLink],
-  templateUrl: './todo-list.html'
+  imports: [NgFor, NgIf, RouterLink], 
+  templateUrl: './todo-list.html',
+  styleUrl: './todo-list.scss'
 })
 export class TodoListComponent {
   todos: Todo[] = [];
@@ -19,9 +20,13 @@ export class TodoListComponent {
 
   toggleDone(id: number) {
     this.todoService.toggleDone(id);
+    // Refresh the list after toggling
+    this.todos = this.todoService.getTodos();
   }
 
   deleteTodo(id: number) {
     this.todoService.deleteTodo(id);
+    // Refresh the list after deletion
+    this.todos = this.todoService.getTodos();
   }
 }

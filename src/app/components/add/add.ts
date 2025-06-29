@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 import { TodoService } from '../../services/todo';
 
 @Component({
@@ -8,22 +9,33 @@ import { TodoService } from '../../services/todo';
   selector: 'app-add',
   templateUrl: './add.html',
   styleUrl: './add.scss',
-  imports: [FormsModule] // ✅ this allows [(ngModel)]
+  imports: [FormsModule, RouterLink, NgIf] // ✅ Added NgIf and RouterLink
 })
 export class AddComponent {
   taskTitle = '';
+  showSuccessMessage = false;
 
   constructor(private todoService: TodoService, private router: Router) {}
 
   addTask() {
     if (this.taskTitle.trim()) {
+      // Add the task
       this.todoService.addTodo({
         id: Date.now(),
         title: this.taskTitle.trim(),
         done: false
       });
+      
+      // Show success message
+      this.showSuccessMessage = true;
+      
+      // Clear the form
       this.taskTitle = '';
-      this.router.navigate(['/todos']); // redirect to list
+      
+      // Redirect after a short delay for better UX
+      setTimeout(() => {
+        this.router.navigate(['/todos']);
+      }, 1000);
     }
   }
 }
