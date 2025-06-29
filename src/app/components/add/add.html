@@ -1,41 +1,118 @@
-<div class="content-card">
-  <h2 class="text-success mb-4">
-    <i class="bi bi-plus-circle"></i> Add New Task
-  </h2>
-  
-  <form (ngSubmit)="addTask()" #taskForm="ngForm">
-    <div class="mb-4">
-      <label for="taskTitle" class="form-label fw-semibold">Task Title</label>
-      <input 
-        id="taskTitle"
-        [(ngModel)]="taskTitle" 
-        name="taskTitle"
-        class="form-control form-control-lg" 
-        placeholder="Enter your task description..."
-        required
-        #titleInput="ngModel" />
-      
-      <!-- Validation message -->
-      <div *ngIf="titleInput.invalid && titleInput.touched" class="text-danger mt-2">
-        <small>Task title is required!</small>
+<div class="fade-in">
+  <!-- Page Header -->
+  <div class="professional-card">
+    <div class="card-header-custom">
+      <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&h=300&fit=crop&crop=center" 
+           alt="Create New Task" class="hero-image">
+      <h2 class="display-5">✨ Create New Task</h2>
+      <p class="lead">Transform your ideas into actionable tasks and boost your productivity</p>
+    </div>
+  </div>
+
+  <!-- Add Task Form -->
+  <div class="row justify-content-center">
+    <div class="col-xl-8 col-lg-10">
+      <div class="professional-card">
+        <div class="card-body p-5">
+          <div class="text-center mb-5">
+            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=120&h=120&fit=crop&crop=center" 
+                 alt="Task Creation" class="icon-image">
+            <h4 class="text-primary">What would you like to accomplish?</h4>
+          </div>
+          
+          <form (ngSubmit)="addTask()" #taskForm="ngForm">
+            <div class="mb-4">
+              <label for="taskTitle" class="form-label">
+                <i class="bi bi-pencil text-primary"></i>
+                Task Description
+              </label>
+              <input 
+                id="taskTitle"
+                [(ngModel)]="taskTitle" 
+                name="taskTitle"
+                class="form-control"
+                placeholder="e.g., Buy groceries, Finish project proposal, Call dentist..."
+                required
+                #titleInput="ngModel" />
+              
+              <!-- Validation message -->
+              <div *ngIf="titleInput.invalid && titleInput.touched" class="text-danger mt-3">
+                <i class="bi bi-exclamation-triangle"></i>
+                <small>Please enter a task description to continue</small>
+              </div>
+            </div>
+            
+            <div class="d-grid gap-3 mb-4">
+              <button 
+                type="submit"
+                class="btn btn-green btn-professional btn-lg"
+                [disabled]="taskForm.invalid || !taskTitle.trim()">
+                <i class="bi bi-check-lg"></i>
+                Create Task
+              </button>
+              <a routerLink="/todos" class="btn btn-outline btn-professional btn-lg">
+                <i class="bi bi-arrow-left"></i>
+                Back to Tasks
+              </a>
+            </div>
+          </form>
+          
+          <!-- Success message -->
+          <div *ngIf="showSuccessMessage" class="alert alert-success text-center">
+            <i class="bi bi-check-circle"></i>
+            <strong>Success!</strong> Your task has been created successfully! Redirecting to your task list...
+          </div>
+        </div>
       </div>
     </div>
-    
-    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-      <button 
-        type="submit"
-        class="btn btn-success btn-lg"
-        [disabled]="taskForm.invalid || !taskTitle.trim()">
-        <i class="bi bi-check-lg"></i> Add Task
-      </button>
-      <a routerLink="/todos" class="btn btn-outline-secondary btn-lg">
-        <i class="bi bi-arrow-left"></i> Back to List
-      </a>
+  </div>
+
+  <!-- Pro Tips Section -->
+  <div class="row justify-content-center mt-4">
+    <div class="col-xl-8 col-lg-10">
+      <div class="professional-card">
+        <div class="card-body p-4">
+          <h5 class="text-primary mb-4">
+            <i class="bi bi-lightbulb"></i>
+            Pro Tips for Effective Task Management
+          </h5>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-clock text-warning" style="font-size: 1.25rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-1">Set Deadlines</h6>
+                  <small class="text-muted">Include time frames when needed</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-list-ul text-info" style="font-size: 1.25rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-1">Break It Down</h6>
+                  <small class="text-muted">Large tasks work better as smaller steps</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-star text-primary" style="font-size: 1.25rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-1">Prioritize</h6>
+                  <small class="text-muted">Focus on what matters most first</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </form>
-  
-  <!-- Success message area -->
-  <div *ngIf="showSuccessMessage" class="alert alert-success mt-3" role="alert">
-    <i class="bi bi-check-circle"></i> Task added successfully! Redirecting...
   </div>
 </div>

@@ -1,70 +1,161 @@
-<div class="content-card">
-  <h1 class="display-4 text-info mb-4">
-    <i class="bi bi-info-circle"></i> About Todo App
-  </h1>
-  
-  <div class="row">
-    <div class="col-md-8">
-      <p class="lead">A modern, responsive task management application built with the latest web technologies.</p>
-      
-      <h3 class="text-primary mt-4">✨ Features</h3>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">📝 Create and manage tasks efficiently</li>
-        <li class="list-group-item">✅ Mark tasks as completed or pending</li>
-        <li class="list-group-item">✏️ Edit existing tasks inline</li>
-        <li class="list-group-item">🗑️ Delete unwanted tasks</li>
-        <li class="list-group-item">💾 Automatic data persistence with LocalStorage</li>
-        <li class="list-group-item">📱 Fully responsive design for all devices</li>
-      </ul>
-      
-      <h3 class="text-primary mt-4">🛠️ Technology Stack</h3>
-      <div class="row mt-3">
-        <div class="col-6">
-          <h6>Frontend</h6>
-          <ul>
-            <li>Angular 20</li>
-            <li>TypeScript</li>
-            <li>Bootstrap 5</li>
-            <li>SCSS</li>
-          </ul>
-        </div>
-        <div class="col-6">
-          <h6>Architecture</h6>
-          <ul>
-            <li>Standalone Components</li>
-            <li>Reactive Forms</li>
-            <li>Angular Router</li>
-            <li>Service-based Architecture</li>
-          </ul>
+<div class="fade-in">
+  <!-- Page Header -->
+  <div class="professional-card">
+    <div class="card-header-custom">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=300&fit=crop&crop=center" 
+           alt="About Todo Universe" class="hero-image">
+      <h2 class="display-5">ℹ️ About Todo Universe</h2>
+      <p class="lead">A modern, responsive task management application built with cutting-edge web technologies</p>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <!-- Features Section -->
+    <div class="col-lg-8">
+      <div class="professional-card h-100">
+        <div class="card-body p-5">
+          <h3 class="text-primary mb-4">✨ Key Features</h3>
+          
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-pencil-square text-primary" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-2">Create & Manage Tasks</h6>
+                  <p class="text-muted small mb-0">Efficiently organize your work with intuitive task creation and management tools.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-check-circle text-success" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-2">Track Progress</h6>
+                  <p class="text-muted small mb-0">Mark tasks as completed and monitor your productivity with visual progress indicators.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-pencil text-warning" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-2">Edit & Update</h6>
+                  <p class="text-muted small mb-0">Modify existing tasks with seamless inline editing capabilities.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-trash text-danger" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-2">Remove Tasks</h6>
+                  <p class="text-muted small mb-0">Delete unwanted tasks to keep your workspace clean and organized.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-save text-info" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-2">Auto-Save</h6>
+                  <p class="text-muted small mb-0">Automatic data persistence with browser LocalStorage ensures your tasks are never lost.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-phone text-primary" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-2">Responsive Design</h6>
+                  <p class="text-muted small mb-0">Works beautifully on desktop, tablet, and mobile devices with adaptive layouts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technology Stack -->
+          <h4 class="text-primary mt-5 mb-4">🛠️ Technology Stack</h4>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <h6 class="text-secondary mb-3">Frontend Technologies</h6>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-code-square text-danger me-2"></i>Angular 20</li>
+                <li class="mb-2"><i class="bi bi-file-earmark-code text-primary me-2"></i>TypeScript</li>
+                <li class="mb-2"><i class="bi bi-bootstrap text-purple me-2"></i>Bootstrap 5</li>
+                <li class="mb-2"><i class="bi bi-palette text-pink me-2"></i>SCSS</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h6 class="text-secondary mb-3">Architecture & Patterns</h6>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-building text-success me-2"></i>Standalone Components</li>
+                <li class="mb-2"><i class="bi bi-diagram-3 text-info me-2"></i>Service-based Architecture</li>
+                <li class="mb-2"><i class="bi bi-signpost text-warning me-2"></i>Angular Router</li>
+                <li class="mb-2"><i class="bi bi-ui-checks text-secondary me-2"></i>Reactive Forms</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    
-    <div class="col-md-4">
-      <div class="card border-success">
-        <div class="card-header bg-success text-white">
-          <h5 class="mb-0">🚀 Quick Actions</h5>
-        </div>
-        <div class="card-body">
-          <div class="d-grid gap-2">
-            <a routerLink="/add" class="btn btn-primary">
-              <i class="bi bi-plus-lg"></i> Add New Task
+
+    <!-- Quick Actions Sidebar -->
+    <div class="col-lg-4">
+      <div class="professional-card">
+        <div class="card-body p-4">
+          <h5 class="text-success mb-4">
+            <i class="bi bi-rocket"></i>
+            Quick Actions
+          </h5>
+          <div class="d-grid gap-3">
+            <a routerLink="/add" class="btn btn-orange btn-professional">
+              <i class="bi bi-plus-lg"></i>
+              Add New Task
             </a>
-            <a routerLink="/todos" class="btn btn-outline-primary">
-              <i class="bi bi-list-check"></i> View All Tasks
+            <a routerLink="/todos" class="btn btn-green btn-professional">
+              <i class="bi bi-list-check"></i>
+              View All Tasks
             </a>
-            <a routerLink="/" class="btn btn-outline-secondary">
-              <i class="bi bi-house"></i> Back to Home
+            <a routerLink="/" class="btn btn-lavender btn-professional">
+              <i class="bi bi-house"></i>
+              Back to Home
             </a>
           </div>
         </div>
       </div>
-      
-      <div class="mt-3 text-center">
-        <small class="text-muted">
-          Built with ❤️ using Angular 20<br>
-          Version 1.0.0
-        </small>
+
+      <!-- App Info -->
+      <div class="professional-card mt-4">
+        <div class="card-body p-4 text-center">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=150&h=100&fit=crop&crop=center" 
+               alt="App Information" 
+               class="img-fluid mb-3"
+               style="border-radius: 12px; box-shadow: var(--shadow-light);">
+          <h6 class="text-primary mb-3">Application Info</h6>
+          <div class="small text-muted">
+            <p class="mb-2"><strong>Version:</strong> 1.0.0</p>
+            <p class="mb-2"><strong>Framework:</strong> Angular 20</p>
+            <p class="mb-2"><strong>UI Library:</strong> Bootstrap 5</p>
+            <p class="mb-0"><strong>Storage:</strong> LocalStorage</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

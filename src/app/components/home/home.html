@@ -1,43 +1,122 @@
-<!-- home.html -->
-<div class="content-card">
-  <h1 class="display-4 text-primary mb-4">
-    <i class="bi bi-house"></i> Welcome to Todo App
-  </h1>
-  <p class="lead">A modern task management application built with Angular 20.</p>
-  
-  <div class="row mt-4">
-    <div class="col-md-6">
-      <div class="card border-primary">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-plus-circle text-success"></i> Add Tasks
-          </h5>
-          <p class="card-text">Create new tasks and organize your work efficiently.</p>
-          <a routerLink="/add" class="btn btn-primary">Add New Task</a>
+<div class="fade-in">
+  <!-- Hero Section -->
+  <div class="professional-card">
+    <div class="card-header-custom">
+      <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&h=300&fit=crop&crop=center" 
+           alt="Productivity Workspace" class="hero-image">
+      <h1 class="display-4">✨ Welcome to Todo Universe</h1>
+      <p class="lead">Your personal productivity companion for organizing tasks with style and efficiency</p>
+    </div>
+  </div>
+
+  <!-- Feature Cards Grid -->
+  <div class="row g-4 mb-5">
+    <div class="col-lg-4 col-md-6">
+      <div class="professional-card h-100">
+        <div class="card-body text-center p-4">
+          <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=200&h=200&fit=crop&crop=center" 
+               alt="Create Tasks" class="icon-image">
+          <h4 class="text-primary mb-3">📝 Create Tasks</h4>
+          <p class="text-muted mb-4">Transform your ideas into organized, actionable tasks with our intuitive interface designed for productivity.</p>
+          <a routerLink="/add" class="btn btn-orange btn-professional">
+            <i class="bi bi-plus-circle"></i>
+            Add New Task
+          </a>
         </div>
       </div>
     </div>
-    
-    <div class="col-md-6">
-      <div class="card border-info">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-list-check text-info"></i> Manage Tasks
-          </h5>
-          <p class="card-text">View, edit, and track your task progress.</p>
-          <a routerLink="/todos" class="btn btn-info">View All Tasks</a>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="professional-card h-100">
+        <div class="card-body text-center p-4">
+          <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=200&fit=crop&crop=center" 
+               alt="Manage Tasks" class="icon-image">
+          <h4 class="text-success mb-3">✅ Manage Tasks</h4>
+          <p class="text-muted mb-4">View, edit, and track your progress with powerful task management tools that keep you organized.</p>
+          <a routerLink="/todos" class="btn btn-green btn-professional">
+            <i class="bi bi-list-check"></i>
+            View All Tasks
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="professional-card h-100">
+        <div class="card-body text-center p-4">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=200&h=200&fit=crop&crop=center" 
+               alt="Learn More" class="icon-image">
+          <h4 class="text-info mb-3">ℹ️ Learn More</h4>
+          <p class="text-muted mb-4">Discover the features and cutting-edge technology that powers this modern todo application.</p>
+          <a routerLink="/about" class="btn btn-lavender btn-professional">
+            <i class="bi bi-info-circle"></i>
+            About App
+          </a>
         </div>
       </div>
     </div>
   </div>
-  
-  <div class="mt-4 p-3 bg-light rounded">
-    <h6>Features:</h6>
-    <ul class="mb-0">
-      <li>✅ Add, edit, and delete tasks</li>
-      <li>✅ Mark tasks as completed</li>
-      <li>✅ Data persistence with LocalStorage</li>
-      <li>✅ Responsive Bootstrap design</li>
-    </ul>
+
+  <!-- Features Overview -->
+  <div class="professional-card">
+    <div class="card-body p-5">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h3 class="text-primary mb-4">🌟 Why Choose Todo Universe?</h3>
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-palette text-primary" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-2">Beautiful Design</h6>
+                  <p class="text-muted mb-0">Modern, clean interface with professional styling</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-phone text-success" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-2">Responsive</h6>
+                  <p class="text-muted mb-0">Works seamlessly on all devices and screen sizes</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-lightning text-warning" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-2">Lightning Fast</h6>
+                  <p class="text-muted mb-0">Built with Angular 20 for optimal performance</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="bi bi-shield-check text-info" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                  <h6 class="mb-2">Secure Storage</h6>
+                  <p class="text-muted mb-0">Your data is safely stored locally in your browser</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop&crop=center" 
+               alt="Technology Features" 
+               class="img-fluid"
+               style="border-radius: 16px; box-shadow: var(--shadow-medium);">
+        </div>
+      </div>
+    </div>
   </div>
 </div>

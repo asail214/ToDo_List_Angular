@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common'; // ✅ Added NgIf
+import { NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TodoService } from '../../services/todo';
 import { Todo } from '../../models/todo.model';
@@ -7,7 +7,7 @@ import { Todo } from '../../models/todo.model';
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [NgFor, NgIf, RouterLink], 
+  imports: [NgFor, NgIf, RouterLink],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.scss'
 })
@@ -28,5 +28,14 @@ export class TodoListComponent {
     this.todoService.deleteTodo(id);
     // Refresh the list after deletion
     this.todos = this.todoService.getTodos();
+  }
+
+  // Helper methods for statistics
+  getCompletedCount(): number {
+    return this.todos.filter(todo => todo.done).length;
+  }
+
+  getPendingCount(): number {
+    return this.todos.filter(todo => !todo.done).length;
   }
 }
