@@ -3,6 +3,7 @@ import { Router, NavigationEnd, RouterLink, RouterLinkActive } from '@angular/ro
 import { NgIf } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { TodoService } from '../../services/todo';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,

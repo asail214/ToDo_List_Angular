@@ -1,6 +1,17 @@
-.sidebar {
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
   min-width: 250px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px 16px; 
+  background-color: white;
 }
 
 .nav-link {
@@ -21,3 +32,20 @@
     font-weight: 500;
   }
 }
+
+.footer {
+  margin-top: auto;
+  font-size: 12px;
+  text-align: center;
+  color: #555;
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+.footer .small {
+  color: #6c757d;
+}
+.footer .fw-semibold {
+  font-weight: 600;
+}
+
